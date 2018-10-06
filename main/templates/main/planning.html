@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	{% load static %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'main/planning.css' %}">
+	<script src="{% static 'main/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static 'main/planning.js' %}"></script>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+	<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+		integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+		crossorigin=""></script>
+</head>
+<body>
+	<nav>
+		<div id="cart" style="display: none">
+			<span id="numberOfItems">3</span>
+			<span>items</span>
+		</div>
+	</nav>
+	<main>
+		<section>
+			{% for result in results %}
+				<div class="card" 
+					data-id="{{ result.id }}"
+					data-lat="{{ result.latitude }}"
+					data-lon="{{ result.longitude }}"
+				>
+					<div class="img-container">
+						<img src="{{ result.image }}" />
+					</div>
+					<h3>{{ result.name }}</h3>
+					<small>{{ result.activity }}</small>
+				</div>
+			{% endfor %}
+		</section>
+		<aside id="mapid">
+			
+		</aside>
+	</main>
+</body>
+</html>

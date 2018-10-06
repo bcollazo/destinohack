@@ -1,0 +1,50 @@
+body {
+	margin: 0;
+}
+
+nav {
+	height: 60px;
+	border-bottom: 1px solid #ddd;
+}
+
+main {
+	display: flex;
+}
+
+section {
+	height: calc(100vh - 60px);
+	overflow-y: scroll;
+
+	width: 60%;
+	padding: 20px;
+	
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
+}
+
+.card {
+	height: 200px;
+	padding: 10px;
+
+	border: 2px solid #ddd;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.card img {
+	max-width: 50%;
+}
+
+.card h2 {
+
+}
+
+.card.selected {
+	background-color: blue;
+}
+
+aside {
+	height: calc(100vh - 60px);
+	width: 40%;
+}
