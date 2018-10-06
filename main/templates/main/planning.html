@@ -31,16 +31,19 @@
 	<main>
 		<section id="selection-pane">
 			{% for result in results %}
-				<div class="card" 
+				<div class="card"
 					data-id="{{ result.id }}"
 					data-lat="{{ result.latitude }}"
 					data-lon="{{ result.longitude }}"
 				>
-					<div class="img-container">
-						<img src="{{ result.image }}" />
+					<div class="img-container" style="height: 70%; background-image: url({{ result.image }}); background-position: center;">
 					</div>
 					<h3>{{ result.name }}</h3>
-					<small>{{ result.activity }}</small>
+					<p>{{ result.activity }}</p>
+					<div class="rating">
+						<img src="http://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/s5.0-MCID-5.svg">
+						<p>680 Reviews</p>
+					</div>
 				</div>
 			{% endfor %}
 		</section>
