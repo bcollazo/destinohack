@@ -12,11 +12,11 @@ main {
 }
 
 section {
+	box-sizing: border-box;
 	height: calc(100vh - 60px);
 	overflow-y: scroll;
-
-	width: 60%;
 	padding: 20px;
+	width: 60%;
 	
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -47,4 +47,15 @@ section {
 aside {
 	height: calc(100vh - 60px);
 	width: 40%;
+}
+
+#loading {
+	position: fixed;
+	top: 100%;
+	left: 0;
+	height: 100%;
+	width: 100%;
+
+	background-color: white;
+	z-index: 1;
 }
