@@ -27,7 +27,12 @@ def planning(request):
 
 
 def plan(request):
-    """Accepts the POST /plan to do schedule algorithm"""
+    """Accepts the POST /plan to do schedule algorithm
+
+    Algorithm is make distance matrix.
+    Find shortest path starting at 1, at 2, at 3.
+
+    """
     print(request.POST)
 
     return JsonResponse({'url': '/schedule?bryan'})
