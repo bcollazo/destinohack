@@ -21,8 +21,8 @@ def index(request):
     city, lat, lon = get_location_from_ipaddress(request)
     city, lat, lon = (
         city or 'San Juan',
-        lat or DEFAULT_LAT,
-        lon or DEFAULT_LON,
+        DEFAULT_LAT,
+        DEFAULT_LON,
     )
 
     return render(request, 'main/index.html', context={'lat': lat, 'lon': lon})
@@ -43,10 +43,10 @@ tripadvisor_cache = {}
 def attach_trip_advisor(results):
     for result in results:
         if result['id'] in tripadvisor_cache:
-            result['rating_image_url'] = tripadvisor_cache[
-                result['id']]['rating_image_url']
-            result['num_reviews'] = tripadvisor_cache[
-                result['id']]['num_reviews']
+            result['rating_image_url'] = tripadvisor_cache[result['id']][
+                'rating_image_url']
+            result['num_reviews'] = tripadvisor_cache[result['id']][
+                'num_reviews']
             continue
 
         try:
