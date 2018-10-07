@@ -2,9 +2,22 @@ body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    color: #171919;
-/*    background-image: url("https://theculturetrip.com/wp-content/uploads/2016/05/23014558519_57c6892f78_o.jpg");
-    background-size: cover;*/
+    color: white;
+}
+
+#backgroundVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}
+
+#content {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 header {
@@ -12,6 +25,7 @@ header {
     border-bottom: 1px solid #ccc;
     height: 60px;
     background-color: #fff;
+    box-shadow: 0 2px 5px #333;
 }
 
 header img {
