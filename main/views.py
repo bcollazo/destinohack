@@ -47,12 +47,7 @@ def planning(request):
     for c in categories:
         results.extend(json.loads(search_viewpr(c, lat, lon)))
 
-    for result in results:
-        try:  # Try to load first image; else default to a placeholder.
-            result['image'] = result['media'][0]
-        except KeyError as e:
-            result['image'] = 'static/main/default-placeholder.png'
-
+    default_image(results)
     return render(request, 'main/planning.html', context={'results': results})
 
 
@@ -73,6 +68,14 @@ def plan(request):
     })
 
 
+def default_image(results):
+    for result in results:
+        try:  # Try to load first image; else default to a placeholder.
+            result['image'] = result['media'][0]
+        except KeyError as e:
+            result['image'] = 'static/main/default-placeholder.png'
+
+
 def schedule(request):
     path = request.GET.get('path', '')
     path = path.split(',')
@@ -81,6 +84,7 @@ def schedule(request):
     for i in path:
         results.extend(json.loads(get_viewpr(i)))
 
+    default_image(results)
     return render(request, 'main/schedule.html', context={'results': results})
 
 

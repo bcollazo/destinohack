@@ -127,3 +127,13 @@ aside {
 	background-color: white;
 	z-index: 1;
 }
+
+#loading h1 {
+	text-align: center;
+}
+
+.ldBar-label {
+	font-family: tahoma;
+	font-size: 2.1em;
+	font-weight: 900
+}
