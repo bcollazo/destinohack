@@ -13,21 +13,26 @@
 <body>
     {% csrf_token %}
     <div id="data" data-lat="{{ lat }}" data-lon="{{ lon }}" style="display: none;"></div>
-    <header>
-        <img src="{% static 'main/itinerus.png' %}"/>
-    </header>
-    <nav>
-        <h1>What do you like to do?</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-    </nav>
-    <main class="categories">
-        <div data-key="adventure" class="hello">Adventure</div>
-        <div data-key="culture">Culture</div>
-        <div data-key="landmark">Landmarks</div>
-        <div data-key="leisure">Leisure</div>
-        <div data-key="nature">Nauture</div>
-        <div data-key="nightlife">Nightlife</div>
-        <button>Plan</button>
-    </main>
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="{% static 'main/agua.mp4' %}" type="video/mp4">
+    </video>
+    <div id="content">
+        <header>
+            <img src="{% static 'main/itinerus.png' %}"/>
+        </header>
+        <nav>
+            <h1>What do you like to do?</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+        </nav>
+        <main class="categories">
+            <div data-key="adventure" class="hello">Adventure</div>
+            <div data-key="culture">Culture</div>
+            <div data-key="landmark">Landmarks</div>
+            <div data-key="leisure">Leisure</div>
+            <div data-key="nature">Nauture</div>
+            <div data-key="nightlife">Nightlife</div>
+            <button>Plan</button>
+        </main>
+    </div>
 </body>
 </html>
