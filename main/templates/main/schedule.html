@@ -18,6 +18,7 @@
 		crossorigin=""></script>
 </head>
 <body>
+	{% csrf_token %}
 	<section id="path">
 	{% for result in results %}
 		<div class="stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}">
