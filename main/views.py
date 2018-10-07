@@ -105,6 +105,7 @@ def get_location_from_ipaddress(request):
             'access_key': settings.IPSTACK_KEY,
             'format': 1
         })
+    print(res.status_code)
+    print(res.text)
     res_json = res.json()
-    print(res_json)
     return (res_json['city'], res_json['latitude'], res_json['longitude'])

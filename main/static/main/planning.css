@@ -140,3 +140,18 @@ aside {
 	font-size: 2.1em;
 	font-weight: 900
 }
+
+@media only screen and (max-width: 600px) {
+    aside {
+        display: none;
+    }
+
+    #selection-pane {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    #schedule-btn {
+        width: 100px;
+    }
+}
