@@ -117,7 +117,7 @@ const navigateToSchedule = function() {
 
 
 const incrementLoading = function(value, callback) {
-    var time = Math.random() * 100;
+    var time = Math.random() * 50;
     var timeout = setTimeout(function() {
         var bar1 = new ldBar("#loading .ldBar");
         bar1.set(value);

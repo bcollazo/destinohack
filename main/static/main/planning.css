@@ -39,7 +39,7 @@ nav img {
 	font-size: 1em;
 
 	position: absolute;
-    left: 270px;
+    right: -20px;
     top: -10px;
 
     display: flex;
