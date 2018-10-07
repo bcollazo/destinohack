@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title></title>
 
 	{% load static %}
@@ -32,7 +34,7 @@
 		{% for result in results %}
 			<div class="stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}" style="background: linear-gradient(transparent, #020202ad), url({{ result.image }}); background-size: cover;">
 				<h2>{{ result.name }}</h2>
-				<img src="{% static 'main/numberedIcons' %}/{{ forloop.counter }}.png" height="40" width="40" />
+				<img src="{% static 'main/numberedIcons' %}/{{ forloop.counter }}.png" height="35" width="35" />
 			</div>
 		{% endfor %}
 		</section>

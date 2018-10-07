@@ -22,8 +22,10 @@ nav img {
 }
 
 h1 {
-    padding-left: 20px;
+    padding-left: 30px;
     margin-bottom: 0;
+    font-weight: 200;
+    margin-top: 20px;
 }
 
 #scroll {
@@ -35,6 +37,7 @@ h1 {
 #path {
     height: calc(100vh - 523px);
     display: flex;
+    align-items: center;
 }
 
 .stop {
@@ -44,10 +47,10 @@ h1 {
     background-color: black;
     background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
     color: #fff;
-    font-size: 1em;
+    font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 3px;
-    margin: 20px;
+    margin: 20px 0 20px 30px;
     padding: 20px;
 
     display: flex;
@@ -55,12 +58,26 @@ h1 {
     align-items: center;
 }
 
+.stop h2 {
+    font-weight: 200;
+    font-size: 23px;
+}
+
 .stop img {
     position: absolute;
-    top: -20px;
-    left: -20px;
+    top: -16px;
+    left: -4px;
 }
 
 #mapid {
     height: 400px;
+}
+
+@media only screen and (max-width: 600px) {
+    #mapid {
+        height: 300px;
+    }
+    #path {
+        height: calc(100vh - 450px);
+    }
 }
