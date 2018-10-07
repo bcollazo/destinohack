@@ -21,6 +21,7 @@
 	<script type="text/javascript" src="{% static 'main/loading-bar.js' %}"></script>
 </head>
 <body>
+	{% csrf_token %}
 	<nav>
 		<img src="{% static 'main/itinerus.png' %}"/>
 		<div class="cart-container">
@@ -52,9 +53,9 @@
 		<aside id="mapid"></aside>
 	</main>
 	<div id="loading">
-		<div class="ldBar label-center" 
-			data-type="fill" 
-			data-value="0" 
+		<div class="ldBar label-center"
+			data-type="fill"
+			data-value="0"
 			data-preset="circle"
 			style="width:600px;height:200px;margin:120px auto;"
 		></div>
