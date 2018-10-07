@@ -1,0 +1,22 @@
+body {
+	margin: 0;
+}
+
+#path {
+	height: calc(100vh - 400px);
+	display: flex;
+}
+
+#path div {
+	height: 100px;
+	/*width: 200px;*/
+
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	margin: 20px;
+	padding: 10px;
+}
+
+#mapid {
+	height: 400px;
+}

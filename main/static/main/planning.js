@@ -11,7 +11,7 @@ const updateCartView = function(cart) {
 }
 
 $(document).ready(function() {
-    const mymap = L.map('mapid').setView([18.4655, -66.1057], 13);
+    const mymap = L.map('mapid').setView([18.4655, -66.1057], 14);
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
         subdomains: 'abcd',
@@ -57,7 +57,8 @@ $(document).ready(function() {
             url : '/plan',
             type: "POST",
             dataType : "json",
-            data: cart,
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(cart),
             success: function(data){
                 url = data['url'];
                 navigateToSchedule();

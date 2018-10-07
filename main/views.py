@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.conf import settings
 
-from main.util import search_viewpr
+from main.util import search_viewpr, get_viewpr, solve
 
 import requests
 
@@ -63,13 +63,25 @@ def plan(request):
     Find shortest path starting at 1, at 2, at 3.
 
     """
-    print(request.POST)
+    payload = json.loads(request.body)
 
-    return JsonResponse({'url': '/schedule?bryan'})
+    path = solve(payload)
+
+    return JsonResponse({
+        'url':
+        '/schedule?path=' + ','.join([str(i) for i in path])
+    })
 
 
 def schedule(request):
-    return HttpResponse('Hola')
+    path = request.GET.get('path', '')
+    path = path.split(',')
+
+    results = []
+    for i in path:
+        results.extend(json.loads(get_viewpr(i)))
+
+    return render(request, 'main/schedule.html', context={'results': results})
 
 
 def get_client_ip(request):
