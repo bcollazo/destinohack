@@ -45,10 +45,12 @@
 					</div>
 					<h3>{{ result.name }}</h3>
 					<p>{{ result.activity }}</p>
+					{% if result.num_reviews != '-' %}
 					<div class="rating">
-						<img src="http://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/s5.0-MCID-5.svg">
-						<p>680 Reviews</p>
+						<img src="{{ result.rating_image_url }}">
+						<p>{{ result.num_reviews }} Reviews</p>
 					</div>
+					{% endif %}
 				</div>
 			{% endfor %}
 		</section>
