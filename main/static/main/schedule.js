@@ -17,7 +17,6 @@ $(document).ready(function() {
     let latlngs = [];
     let lats = [];
     let lngs = [];
-    console.log(numberedIcons);
     $(".stop").each(function(i, e) {
     	let lat = $(e).data('lat');
     	let lon = $(e).data('lon');
@@ -25,7 +24,6 @@ $(document).ready(function() {
     	latlngs.push([lat, lon]);
     	lats.push(lat);
     	lngs.push(lon);
-    	console.log(i);
     	L.marker([lat, lon], {icon: numberedIcons[i+1]}).addTo(mymap);
     });
     L.polyline(latlngs, {color: 'blue'}).addTo(mymap);
@@ -40,6 +38,5 @@ $(document).ready(function() {
 	bbox = [[minlat,minlng],[maxlat,maxlng]];
 
 	// add the bounding box to the map, and set the map extent to it
-	// L.rectangle(bbox).addTo(map);
 	mymap.fitBounds(bbox, {padding: [33, 33]});
 });
