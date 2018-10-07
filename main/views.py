@@ -1,4 +1,5 @@
 import json
+import re
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
@@ -12,6 +13,7 @@ import requests
 # San Juan
 DEFAULT_LAT = 18.4655
 DEFAULT_LON = -66.1057
+DEFAULT_IMAGE = 'static/main/default-placeholder.png'
 
 
 def index(request):
@@ -35,6 +37,53 @@ CONVERTED = {
     'nightlife': 'Night Life',
 }
 
+tripadvisor_cache = {}
+
+
+def attach_trip_advisor(results):
+    for result in results:
+        if result['id'] in tripadvisor_cache:
+            result['rating_image_url'] = tripadvisor_cache[
+                result['id']]['rating_image_url']
+            result['num_reviews'] = tripadvisor_cache[
+                result['id']]['num_reviews']
+            continue
+
+        try:
+            link = result['tripadvisor']
+            print(link)
+            m = re.search('-d[0-9]+-', link)
+            word = m.group(0)
+            tid = word[2:-1]
+            res = requests.get(
+                'http://api.tripadvisor.com/api/partner/2.0/location/' + tid,
+                params={'key': '7b70e265-3bf5-4a69-bf5c-27427c96f913'})
+            # print(res.status_code)
+            # print(res.text)
+            res_json = res.json()
+            result['rating_image_url'] = res_json['rating_image_url']
+            result['num_reviews'] = res_json['num_reviews']
+            tripadvisor_cache[result['id']] = {
+                'rating_image_url': res_json['rating_image_url'],
+                'num_reviews': res_json['num_reviews']
+            }
+        except KeyError as e:
+            result['rating_image_url'] = ''
+            result['num_reviews'] = '-'
+            pass
+
+
+def sorting_key(result):
+    points = 0
+
+    if result['image'] == DEFAULT_IMAGE:
+        points += 1
+
+    if result['num_reviews'] != '-':
+        points -= 1
+
+    return points
+
 
 def planning(request):
     categories = request.GET.get('categories', '')
@@ -48,7 +97,10 @@ def planning(request):
     for c in categories:
         results.extend(json.loads(search_viewpr(c, lat, lon)))
 
+    attach_trip_advisor(results)
     default_image(results)
+
+    results = sorted(results, key=sorting_key)
     return render(request, 'main/planning.html', context={'results': results})
 
 
@@ -74,7 +126,7 @@ def default_image(results):
         try:  # Try to load first image; else default to a placeholder.
             result['image'] = result['media'][0]
         except KeyError as e:
-            result['image'] = 'static/main/default-placeholder.png'
+            result['image'] = DEFAULT_IMAGE
 
 
 def schedule(request):

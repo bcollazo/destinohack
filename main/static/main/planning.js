@@ -26,17 +26,28 @@ $(document).ready(function() {
 
     var hoverMarker = undefined;
     const cart = {};
+    const markerCart = {};
+    var greenIcon = new L.Icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
 
     $(".card").hover(function() {
         let element = $(this);
         let lat = element.data('lat');
         let lon = element.data('lon');
 
+        hoverMarker = L.marker([lat, lon]).addTo(mymap);
+        mymap.flyTo(new L.LatLng(lat, lon));
+    }, function() {
         if (hoverMarker) {
             hoverMarker.remove();
         }
-        hoverMarker = L.marker([lat, lon]).addTo(mymap);
-        mymap.flyTo(new L.LatLng(lat, lon));
     });
 
     $(".card").click(function() {
@@ -48,7 +59,9 @@ $(document).ready(function() {
         // Update model
         if (id in cart) { // then remove
             delete cart[id];
+            markerCart[id].remove()
         } else {
+            markerCart[id] = L.marker([lat, lon], {icon: greenIcon}).addTo(mymap);
             cart[id] = {'id': id, 'name': name, 'lat': lat, 'lon': lon};
         }
 
