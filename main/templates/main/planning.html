@@ -25,7 +25,7 @@
 <body>
 	{% csrf_token %}
 	<nav>
-		<a href="/"><img src="{% static 'main/itinerus.png' %}"/></a>
+		<a href="/"><img src="{% static 'main/itinerus-logo.svg' %}"/></a>
 		<div class="cart-container">
 			<span id="estimate"></span>
 			<button id="schedule-btn" disabled>Schedule</button>
@@ -45,7 +45,6 @@
 					<div class="img-container" style="height: 70%; background-image: url({{ result.image }}); background-position: center;">
 					</div>
 					<h3>{{ result.name }}</h3>
-					<p>{{ result.activity }}</p>
 					{% if result.num_reviews != '-' %}
 					<div class="rating">
 						<img src="{{ result.rating_image_url }}">
