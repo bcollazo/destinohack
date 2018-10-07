@@ -1,3 +1,7 @@
+// San Juan
+DEFAULT_LAT = 18.4655 
+DEFAULT_LON = -66.1057
+
 const updateCartView = function(cart) {
     const numberOfItems = Object.keys(cart).length;
     if (numberOfItems === 0) {
@@ -13,7 +17,7 @@ const updateCartView = function(cart) {
 }
 
 $(document).ready(function() {
-    const mymap = L.map('mapid').setView([18.4655, -66.1057], 14);
+    const mymap = L.map('mapid').setView([DEFAULT_LAT, DEFAULT_LON], 15);
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
         subdomains: 'abcd',
@@ -32,7 +36,7 @@ $(document).ready(function() {
             hoverMarker.remove();
         }
         hoverMarker = L.marker([lat, lon]).addTo(mymap);
-        mymap.panTo(new L.LatLng(lat, lon));
+        mymap.flyTo(new L.LatLng(lat, lon));
     });
 
     $(".card").click(function() {
@@ -51,7 +55,6 @@ $(document).ready(function() {
         // Update view
         updateCartView(cart);
         element.toggleClass('selected');
-        console.log(cart);
     });
 
     $("#schedule-btn").click(function() {

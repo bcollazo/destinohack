@@ -9,6 +9,7 @@ from main.util import search_viewpr, get_viewpr, solve
 
 import requests
 
+# San Juan
 DEFAULT_LAT = 18.4655
 DEFAULT_LON = -66.1057
 

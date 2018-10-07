@@ -23,7 +23,7 @@
 <body>
 	{% csrf_token %}
 	<nav>
-		<img src="{% static 'main/itinerus.png' %}"/>
+		<a href="/"><img src="{% static 'main/itinerus.png' %}"/></a>
 		<div class="cart-container">
 			<button id="schedule-btn" disabled>Schedule</button>
 			<div id="cart" style="display: none">
