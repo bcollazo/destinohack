@@ -14,7 +14,8 @@ $(document).ready(function() {
     });
 
     $('button').click(function() {
-        console.log('asdf');
-        window.location.href = '/planning?categories=' + selections.join(',');
+        const lat = $("#data").data('lat');
+        const lon = $("#data").data('lon');
+        window.location.href = '/planning?categories=' + selections.join(',') + "&lat=" + lat + "&lon=" + lon;
     });
 });

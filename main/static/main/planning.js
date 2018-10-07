@@ -11,7 +11,7 @@ const updateCartView = function(cart) {
 }
 
 $(document).ready(function() {
-    const mymap = L.map('mapid').setView([18.2208, -66.4301], 9);
+    const mymap = L.map('mapid').setView([18.4655, -66.1057], 13);
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
         subdomains: 'abcd',

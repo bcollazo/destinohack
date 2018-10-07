@@ -1,7 +1,7 @@
 import http.client, urllib.request, urllib.parse, urllib.error, base64
 
 
-def search_viewpr(category):
+def search_viewpr(category, lat, lon):
     headers = {
         'Ocp-Apim-Subscription-Key': '09150f80b3634a11aa9df36d9d6faba5',
     }
@@ -11,9 +11,9 @@ def search_viewpr(category):
         # 'address': '{string}',
         # 'neighborhood': '{string}',
         # 'city': '{string}',
-        # 'latitude': '{number}',
-        # 'longitude': '{number}',
-        # 'radiusOfBuffer': '{string}',
+        'latitude': lat,
+        'longitude': lon,
+        'radiusOfBuffer': 200,
         # 'businessStatus': '1',
         # 'activity': '{string}',
         'category': category,
