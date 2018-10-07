@@ -7,6 +7,8 @@ const updateCartView = function(cart) {
         $("#cart").show();
         $("#cart span#numberOfItems").text(numberOfItems);
         $("#schedule-btn").prop('disabled', false);
+        $("#schedule-btn").css("background-color", "#ff4440");
+        $("#schedule-btn").css("color", "#fff");
     }
 }
 
@@ -38,7 +40,7 @@ $(document).ready(function() {
         let id = element.data('id');
         let lat = element.data('lat');
         let lon = element.data('lon');
-        
+
         // Update model
         if (id in cart) { // then remove
             delete cart[id];

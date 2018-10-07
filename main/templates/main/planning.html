@@ -22,11 +22,13 @@
 </head>
 <body>
 	<nav>
-		<div id="cart" style="display: none">
-			<span id="numberOfItems">3</span>
-			<span>items</span>
+		<img src="{% static 'main/itinerus.png' %}"/>
+		<div class="cart-container">
+			<button id="schedule-btn" disabled>Schedule</button>
+			<div id="cart" style="display: none">
+				<span id="numberOfItems">3</span>
+			</div>
 		</div>
-		<button id="schedule-btn" disabled>Schedule</button>
 	</nav>
 	<main>
 		<section id="selection-pane">

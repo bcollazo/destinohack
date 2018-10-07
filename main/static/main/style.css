@@ -3,16 +3,20 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     color: #171919;
+/*    background-image: url("https://theculturetrip.com/wp-content/uploads/2016/05/23014558519_57c6892f78_o.jpg");
+    background-size: cover;*/
 }
 
 header {
-    text-align: center; 
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    height: 60px;
+    background-color: #fff;
 }
 
 header img {
-    margin-top: -60px;
-    margin-bottom: -70px;
-    height: 300px;
+    margin-top: 17px;
+    height: 30px;
 }
 
 nav {
@@ -42,6 +46,7 @@ nav {
     height: 80px;
     border: 1px solid #ddd;
     border-radius: 3px;
+    background-color: #fff;
 }
 
 .categories > div.selected {
@@ -57,4 +62,5 @@ button {
     margin-top: 20px;
 
     font-size: 1.5em;
+    cursor: pointer;
 }

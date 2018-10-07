@@ -6,8 +6,57 @@ body {
 }
 
 nav {
-	height: 60px;
-	border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ccc;
+    height: 80px;
+    background-color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+nav img {
+	padding-left: 30px;
+    margin-top: 17px;
+    height: 30px;
+}
+
+.cart-container {
+	display: flex;
+	margin-right: 30px;
+
+	position: relative;
+}
+
+#cart {
+	margin: auto;
+	background-color: #333;
+	height: 40px;
+	width: 40px;
+	border-radius: 30px;
+	font-size: 1em;
+	color: #fff;
+	font-size: 1em;
+
+	position: absolute;
+    left: 270px;
+    top: 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#schedule-btn {
+	height: 60%;
+	width: 300px;
+    margin: auto;
+    border: none;
+    background-color: #dfeef1;
+    color: #a7a7a7;
+    border-radius: 3px;
+
+    font-size: 1em;
+    box-shadow: 5px 10px #888888;
 }
 
 main {
@@ -20,7 +69,7 @@ section {
 	overflow-y: scroll;
 	padding: 20px;
 	width: 60%;
-	
+
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 20px;
