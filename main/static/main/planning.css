@@ -103,6 +103,7 @@ section {
 
 .rating {
 	display: flex;
+    margin-top: 3px;
 }
 
 .rating p {
