@@ -5,19 +5,26 @@
     {% load static %}
 
     <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <script src="{% static 'main/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'main/index.js' %}"></script>
 </head>
 <body>
+    <header>
+        <img src="{% static 'main/logo2.png' %}"/>
+    </header>
     <nav>
         <h1>What do you like to do?</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
     </nav>
     <main class="categories">
-        <div class="adventure">Adventure</div>
-        <div class="culture">Culture</div>
-        <div class="landmark">Landmarks</div>
-        <div class="leisure">Leisure</div>
-        <div class="nature">Nauture</div>
-        <div class="nightlife">Nightlife</div>
+        <div data-key="adventure" class="hello">Adventure</div>
+        <div data-key="culture">Culture</div>
+        <div data-key="landmark">Landmarks</div>
+        <div data-key="leisure">Leisure</div>
+        <div data-key="nature">Nauture</div>
+        <div data-key="nightlife">Nightlife</div>
         <button>Plan</button>
     </main>
 </body>

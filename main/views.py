@@ -11,11 +11,24 @@ def index(request):
     return render(request, 'main/index.html')
 
 
+CONVERTED = {
+    'adventure': 'Adventure & Sports',
+    'culture': 'Culture & Science',
+    'landmark': 'Historic Sites and Landmarks',
+    'leisure': 'Leisure & Recreational',
+    'nature': 'Nature',
+    'nightlife': 'Night Life',
+}
+
+
 def planning(request):
     categories = request.GET.get('categories', '')
+    categories = [CONVERTED[c] for c in categories.split(',')]
+    print(categories)
 
-    res = search_viewpr('Adventure & Sports')
-    results = json.loads(res)
+    results = []
+    for c in categories:
+        results.extend(json.loads(search_viewpr(c)))
 
     for result in results:
         try:  # Try to load first image; else default to a placeholder.
