@@ -2,17 +2,26 @@
 DEFAULT_LAT = 18.4655 
 DEFAULT_LON = -66.1057
 
+const timesCart = [];
+
 const updateCartView = function(cart) {
     const numberOfItems = Object.keys(cart).length;
     if (numberOfItems === 0) {
         $("#cart").hide();
         $("#schedule-btn").prop('disabled', true);
+        $("#estimate").text('');
     } else {
         $("#cart").show();
         $("#cart span#numberOfItems").text(numberOfItems);
         $("#schedule-btn").prop('disabled', false);
         $("#schedule-btn").css("background-color", "#ff4440");
         $("#schedule-btn").css("color", "#fff");
+
+        var sum = timesCart.reduce((a, b) => a + b, 0);
+        var h = Math.trunc(sum / 60);
+        var m = Math.floor(sum % 60);
+        var maybeHours = h === 0 ? '' : h + 'h ' ;
+        $("#estimate").text('~ ' + maybeHours + m + 'mins')
     }
 }
 
@@ -60,14 +69,19 @@ $(document).ready(function() {
         if (id in cart) { // then remove
             delete cart[id];
             markerCart[id].remove()
+            timesCart.pop();
         } else {
             markerCart[id] = L.marker([lat, lon], {icon: greenIcon}).addTo(mymap);
             cart[id] = {'id': id, 'name': name, 'lat': lat, 'lon': lon};
+            timesCart.push(Math.random() * 60 + 30);
         }
 
         // Update view
         updateCartView(cart);
         element.toggleClass('selected');
+        console.log(timesCart);
+        var sum = timesCart.reduce((a, b) => a + b, 0);
+        console.log(sum);
     });
 
     $("#schedule-btn").click(function() {

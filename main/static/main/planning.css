@@ -22,6 +22,7 @@ nav img {
 
 .cart-container {
 	display: flex;
+	align-items: center;
 	margin-right: 30px;
 
 	position: relative;
@@ -44,6 +45,11 @@ nav img {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#estimate {
+	margin-right: 10px;
+	font-size: 1.2em;
 }
 
 #schedule-btn {
@@ -153,5 +159,9 @@ aside {
 
     #schedule-btn {
         width: 100px;
+    }
+
+    #estimate {
+    	display: none;
     }
 }
