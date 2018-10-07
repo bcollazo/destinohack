@@ -28,14 +28,16 @@
 			<h1>Here's your optimized itinerus! Have fun!</h1>
 		</div>
 	</section>
-	<section id="path">
-	{% for result in results %}
-		<div class="stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}" style="background: linear-gradient(transparent, #020202ad), url({{ result.image }}); background-size: cover;">
-			<h2>{{ result.name }}</h2>
-
-		</div>
-	{% endfor %}
-	</section>
+	<div id="scroll">
+		<section id="path">
+		{% for result in results %}
+			<div class="stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}" style="background: linear-gradient(transparent, #020202ad), url({{ result.image }}); background-size: cover;">
+				<h2>{{ result.name }}</h2>
+				<img src="{% static 'main/numberedIcons' %}/{{ forloop.counter }}.png" height="40" width="40" />
+			</div>
+		{% endfor %}
+		</section>
+	</div>
 	<section id="mapid">
 	</section>
 </body>

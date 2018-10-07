@@ -26,14 +26,21 @@ h1 {
     margin-bottom: 0;
 }
 
+#scroll {
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 #path {
     height: calc(100vh - 523px);
     display: flex;
 }
 
 .stop {
+    position: relative;
     height: 100px;
-    /*width: 200px;*/
+    width: 300px;
     background-color: black;
     background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
     color: #fff;
@@ -46,6 +53,12 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.stop img {
+    position: absolute;
+    top: -20px;
+    left: -20px;
 }
 
 #mapid {
