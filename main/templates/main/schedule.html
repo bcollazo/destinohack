@@ -19,9 +19,13 @@
 </head>
 <body>
 	{% csrf_token %}
+
+	<nav>
+		<img src="{% static 'main/itinerus.png' %}"/>
+	</nav>
 	<section id="path">
 	{% for result in results %}
-		<div class="stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}">
+		<div class="stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}" style="background-image: url({{ result.image }});">
 			<h2>{{ result.name }}</h2>
 
 		</div>
