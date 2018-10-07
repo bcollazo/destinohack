@@ -23,9 +23,14 @@
 	<nav>
 		<img src="{% static 'main/itinerus.png' %}"/>
 	</nav>
+	<section>
+		<div>
+			<h1>Here's your optimized itinerus! Have fun!</h1>
+		</div>
+	</section>
 	<section id="path">
 	{% for result in results %}
-		<div class="stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}" style="background-image: url({{ result.image }});">
+		<div class="stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}" style="background: linear-gradient(transparent, #020202ad), url({{ result.image }}); background-size: cover;">
 			<h2>{{ result.name }}</h2>
 
 		</div>
