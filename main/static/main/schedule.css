@@ -1,11 +1,10 @@
 body {
-	margin: 0;
+    margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     color: #171919;
 
-   	height: calc(100vh - 80px);
-
+    /*height: calc(100vh - 80px);*/
 }
 
 nav {
@@ -14,40 +13,41 @@ nav {
     background-color: #fff;
 
     display: flex;
-   	align-items: center;
+    align-items: center;
 }
 
 nav img {
-	padding-left: 30px;
-    height: 30px;
+    margin-left: 30px;
+    height: 40px;
 }
 
 h1 {
-	padding-left: 20px;
+    padding-left: 20px;
+    margin-bottom: 0;
 }
 
 #path {
-	height: calc(100vh - 400px);
-	display: flex;
+    height: calc(100vh - 523px);
+    display: flex;
 }
 
 .stop {
-	height: 100px;
-	/*width: 200px;*/
-	background-color: black;
-	background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-	color: #fff;
-	font-size: 1em;
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	margin: 20px;
-	padding: 20px;
+    height: 100px;
+    /*width: 200px;*/
+    background-color: black;
+    background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+    color: #fff;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin: 20px;
+    padding: 20px;
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #mapid {
-	height: 400px;
+    height: 400px;
 }

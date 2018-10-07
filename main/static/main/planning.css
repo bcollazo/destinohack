@@ -11,13 +11,13 @@ nav {
     background-color: #fff;
 
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
 nav img {
-	padding-left: 30px;
-    margin-top: 17px;
-    height: 30px;
+	margin-left: 30px;
+    height: 40px;
 }
 
 .cart-container {
@@ -39,7 +39,7 @@ nav img {
 
 	position: absolute;
     left: 270px;
-    top: 3px;
+    top: -10px;
 
     display: flex;
     justify-content: center;
@@ -47,7 +47,7 @@ nav img {
 }
 
 #schedule-btn {
-	height: 60%;
+	height: 48px;
 	width: 300px;
     margin: auto;
     border: none;
