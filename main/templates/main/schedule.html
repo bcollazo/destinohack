@@ -24,21 +24,27 @@
 	<nav>
 		<a href="/"><img src="{% static 'main/itinerus-logo.svg' %}"/></a>
 	</nav>
-	<section>
-		<div>
+	<main>
+		<section class="results-pane">
 			<h1>Here's your optimized itinerus! Have fun!</h1>
-		</div>
-	</section>
-	<div id="scroll">
-		<section id="path">
-		{% for result in results %}
-			<div class="stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}" style="background: linear-gradient(transparent, #020202ad), url({{ result.image }}); background-size: cover;">
-				<h2>{{ result.name }}</h2>
-				<img src="{% static 'main/numberedIcons' %}/{{ forloop.counter }}.png" height="35" width="35" />
+			{% for result in results %}
+			<div class="results-list stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}">
+				<div class="img-container" style="background-image: url({{ result.image }}); background-position: center; background-size: cover">
+					<img src="{% static 'main/numberedIcons' %}/{{ forloop.counter }}.png" height="35" width="35" />
+				</div>
+				<div>
+					<h2>{{ result.name }}</h2>
+					{% if result.num_reviews != '-' %}
+					<div class="rating">
+						<img src="{{ result.rating_image_url }}">
+						<p>{{ result.num_reviews }} Reviews</p>
+					</div>
+					{% endif %}
+				</div>
 			</div>
-		{% endfor %}
+			{% endfor %}
 		</section>
-	</div>
-	<section id="mapid">
-	</section>
+		<aside id="mapid">
+		</aside>
+	</main>
 </body>
