@@ -1,5 +1,5 @@
 // San Juan
-DEFAULT_LAT = 18.4655 
+DEFAULT_LAT = 18.4655
 DEFAULT_LON = -66.1057
 
 const timesCart = [];
@@ -26,7 +26,9 @@ const updateCartView = function(cart) {
 }
 
 $(document).ready(function() {
-    const mymap = L.map('mapid').setView([DEFAULT_LAT, DEFAULT_LON], 15);
+    const startLat = $("aside").data('slat') || DEFAULT_LAT;
+    const startLng = $("aside").data('slon') || DEFAULT_LON;
+    const mymap = L.map('mapid').setView([startLat, startLng], 15);
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
         subdomains: 'abcd',
