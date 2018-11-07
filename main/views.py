@@ -5,10 +5,10 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 from django.conf import settings
+from more_itertools import unique_everseen
+import requests
 
 from main.util import search_viewpr, get_viewpr, solve
-
-import requests
 
 # San Juan
 DEFAULT_LAT = 18.4655
@@ -67,7 +67,7 @@ def attach_trip_advisor(results):
                 'rating_image_url': res_json['rating_image_url'],
                 'num_reviews': res_json['num_reviews']
             }
-        except KeyError as e:
+        except (KeyError, AttributeError):
             result['rating_image_url'] = ''
             result['num_reviews'] = '-'
             pass
@@ -86,8 +86,10 @@ def sorting_key(result):
 
 
 def planning(request):
-    categories = request.GET.get('categories', '')
-    categories = [CONVERTED[c] for c in categories.split(',')]
+    # Changed plans... now categories are selected in planning view
+    # categories = request.GET.get('categories', '')
+    # categories = [CONVERTED[c] for c in categories.split(',')]
+    categories = list(CONVERTED.values())
 
     lat = request.GET.get('lat', DEFAULT_LAT)
     lon = request.GET.get('lon', DEFAULT_LON)
@@ -100,8 +102,16 @@ def planning(request):
     attach_trip_advisor(results)
     default_image(results)
 
+    results = unique_everseen(results, key=lambda x: x['id'])
     results = sorted(results, key=sorting_key)
-    return render(request, 'main/planning.html', context={'results': results})
+    return render(
+        request,
+        'main/planning.html',
+        context={
+            'results': results,
+            'slat': lat,
+            'slon': lon,
+        })
 
 
 def plan(request):

@@ -6,11 +6,13 @@
     <title>Destino</title>
     {% load static %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/index.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <script src="{% static 'main/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIN8lHCwrDWKqxJQX-jhH7kgZ8sTBv7ao&libraries=places"></script>
     <script type="text/javascript" src="{% static 'main/index.js' %}"></script>
+
 </head>
 <body>
     {% csrf_token %}
@@ -19,10 +21,12 @@
         <source src="{% static 'main/agua.mp4' %}" type="video/mp4">
     </video>
     <div id="content">
-        <header>
-            <img src="{% static 'main/itinerus-logo.svg' %}"/>
-        </header>
         <nav>
+            <img src="{% static 'main/itinerus-logo.svg' %}"/>
+        </nav>
+        <h1>Itinerize your trip! Where at?</h1>
+        <input id="searchTextField" type="text" size="50" placeholder="Search" autofocus />
+        <!-- <nav>
             <h1>What would you like to do in Puerto Rico?</h1>
         </nav>
         <main class="categories">
@@ -33,7 +37,7 @@
             <div data-key="nature">Nauture</div>
             <div data-key="nightlife">Nightlife</div>
             <button>Plan</button>
-        </main>
+        </main> -->
     </div>
 </body>
 </html>

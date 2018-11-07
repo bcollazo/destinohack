@@ -12,6 +12,7 @@ numpy = "*"
 gunicorn = "*"
 django-heroku = "*"
 requests = "*"
+more-itertools = "*"
 
 
 [dev-packages]
