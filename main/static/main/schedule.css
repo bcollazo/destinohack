@@ -1,10 +1,8 @@
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 14px;
     color: #171919;
-
-    /*height: calc(100vh - 80px);*/
 }
 
 nav {
@@ -32,18 +30,6 @@ main {
     display: flex;
 }
 
-/*#scroll {
-    overflow-x: auto;
-    display: flex;
-    flex-wrap: nowrap;
-}*/
-
-/*#path*/ {
-/*    height: calc(100vh - 523px);
-*/   /* display: flex;
-    align-items: center;*/
-}
-
 .results-pane {
    width: 40%;
    height: calc(100vh - 60px);
@@ -51,62 +37,44 @@ main {
 }
 
 .results-list {
-    box-sizing: border-box;
-    height: 120px;
-    overflow-y: scroll;
-    padding: 20px;
-    border-bottom: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 10px;
+/*    border: 1px solid #ccc;
+    border-radius: 5px;
     margin: 30px;
 
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr;
-    grid-gap: 20px;
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 130px;*/
+
+
+    border-bottom: 1px solid #ccc;
+    margin: 0 30px;
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 130px;
 }
 
-/*.stop {
+.counter {
     position: relative;
-    height: 100px;
-    width: 300px;
-    background-color: red;
-    color: #fff;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    margin: 20px 0 20px 30px;
-    padding: 20px;*/
-
-  /*  display: flex;
-    justify-content: center;
-    align-items: center;*/
-}
-
-.stop h2 {
-    margin-top: 5px;
-    font-weight: 200;
-    font-size: 23px;
-}
-
-/*.stop img {
-    position: absolute;
-    top: -16px;
-    left: -4px;
-}*/
-
-.img-container img {
-        position: relative;
     top: -8px;
     left: -3px;
 }
 
-.rating h2 {
-    margin-bottom: 0;
+.info-container {
+    padding: 15px;
 }
 
-.rating p {
-    margin-top: 3px;
+.info-container h2, h3, p {
+    margin: 0;
+    font-weight: 200;
+}
+
+.info-container h3 {
+    font-size: 1em;
+}
+
+.rating h2 {
+    margin-bottom: 0;
 }
 
 #mapid {
@@ -119,14 +87,11 @@ main {
         padding: 0 30px 0 30px;
     }
 
-    .stop {
-        height: 140px;
-    }
-
     #mapid {
-        height: 300px;
+        display: none;
     }
-    #path {
-        height: calc(100vh - 450px);
+    
+    .results-pane {
+        width: 100%;
     }
 }
