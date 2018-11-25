@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Itinerus</title>
 
 	{% load static %}
 
@@ -30,15 +30,15 @@
 			<h1>Here's your optimized itinerus! Have fun!</h1>
 			{% for result in results %}
 			<div class="results-list stop" data-lat="{{ result.latitude }}" data-lon="{{ result.longitude }}">
-				<div class="img-container" style="background-image: url({{ result.image }}); background-position: center; background-size: cover; border-radius: 5px 0 0 5px">
-					<img class="counter" src="{% static 'main/numberedIcons' %}/{{ forloop.counter }}.png" height="35" width="35" />
+				<div class="img-container" style="background-image: url({{ result.image }}); background-position: center; background-size: cover; border-radius: 3px">
+					<img class="counter" src="{% static 'main/numberedIcons' %}/{{ forloop.counter }}.png" height="35" width="35" alt="counter" />
 				</div>
 				<div class="info-container">
 					<h3>Attraction</h3>
 					<h2>{{ result.name }}</h2>
 					{% if result.num_reviews != '-' %}
 					<div class="rating">
-						<img src="{{ result.rating_image_url }}">
+						<img src="{{ result.rating_image_url }}" alt="rating">
 						<p>{{ result.num_reviews }} Reviews</p>
 					</div>
 					{% endif %}

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title></title>
+	<title>Itinerus | Select your experiences</title>
 
 	{% load static %}
 
@@ -47,7 +47,7 @@
 					<h3>{{ result.name }}</h3>
 					{% if result.num_reviews != '-' %}
 					<div class="rating">
-						<img src="{{ result.rating_image_url }}">
+						<img src="{{ result.rating_image_url }}" alt="rating">
 						<p>{{ result.num_reviews }} Reviews</p>
 					</div>
 					{% endif %}
